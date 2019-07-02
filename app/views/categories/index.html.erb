@@ -1,14 +1,12 @@
-<h1>This is a Food order page</h1>
-<h3>Category</h3>
-<%@categories.each do|c|%>
-<ol>
+<h2>Categories (<%= @categories.length %>)</h2>
 
+<ol>
+  <% @categories.each do |category| %>
     <li>
-        <%=link_to category_products_path(c) do%>
-        <%=c.title%>
-        <%="(#{c.products.count})"%>
-        <%end%>
+      <%= link_to category_products_path(category) do %>
+        <%= category.title %>
+        (<%= category.products_count %> products)
+      <% end %>
     </li>
-    
+  <% end %>
 </ol>
-<%end%>
