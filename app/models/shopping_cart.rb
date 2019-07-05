@@ -2,7 +2,7 @@ class ShoppingCart
  
   def initialize(token:,uid:)
     @token = token
-    @uid=uid
+    @uid = uid
   end
   delegate:sub_total,to: :order
 
@@ -25,14 +25,14 @@ class ShoppingCart
     order_item = order.items.find_or_initialize_by(
       product_id: product_id
     )
-
+  if quantity.to_i>=1
     order_item.price = product.price
     order_item.quantity = quantity
     order.sub_total+=order_item.quantity*order_item.price
     order.save
     order_item.save
   end
-
+end
   def remove_item(id:)
     o=order.items.find(id)
     order.sub_total-=o.quantity*o.price

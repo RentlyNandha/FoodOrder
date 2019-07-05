@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :products ,only: [:index]
   end
   get "/cart" => "order_items#index"
+  get "/orders" => "orders#index"
+
   resources :order_items ,path: "/cart/items"
   post "/checkout" => "orders#create"
 end

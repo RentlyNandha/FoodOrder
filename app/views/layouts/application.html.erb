@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html>
   <head>
     <title>Shopper</title>
@@ -10,7 +12,10 @@
 
   <body>
     <p>
-      <%= link_to "Home", root_path %> |
+         <% if !(current_page?(root_path)) %>
+        <%= link_to "Home", root_path %>
+        <%end%> |
+        <%= link_to "Order History", "/orders" %>|
       <%if current_cart!=nil%>
       <%= link_to "Cart " + pluralize(current_cart.items_count, 'item'), cart_path %>
       <%end%>
@@ -34,5 +39,14 @@
   <% end %>
   </p>
     <%= yield %>
+    <script type="text/javascript">
+      window.onpageshow = function(evt) {
+        // If persisted then it is in the page cache, force a reload of the page.
+        if (evt.persisted) {
+          document.body.style.display = "none";
+          location.reload();
+        }
+      };
+    </script>
   </body>
 </html>
