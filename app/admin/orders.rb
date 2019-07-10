@@ -22,6 +22,8 @@ show do
     end
     active_admin_comments
 end
-remove_filter :items, :user
+remove_filter :items
+filter :user, :collection => proc {(User.all).map{|c| [c.email, c.id]}}
+
 
 end

@@ -28,16 +28,26 @@ class ShoppingCart
   if quantity.to_i>=1
     order_item.price = product.price
     order_item.quantity = quantity
-    order.sub_total+=order_item.quantity*order_item.price
-    order.save
     order_item.save
+    total
   end
+end
+def total
+  order.sub_total=0    
+  order_items=order.items
+       order_items.each do|o_i|
+       order.sub_total+=o_i.quantity*o_i.price
+      end 
+      #byebug
+  order.save
+    
 end
   def remove_item(id:)
     o=order.items.find(id)
-    order.sub_total-=o.quantity*o.price
-    order.save
+    
+   
     o.destroy
+    total
   end
 
 end
