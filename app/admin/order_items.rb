@@ -14,5 +14,6 @@ ActiveAdmin.register OrderItem do
 permit_params :title, :description, :price
 actions :all, except: [:update, :destroy,:create,:new,:edit]
 
+remove_filter :order
 
 end

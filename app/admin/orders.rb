@@ -22,4 +22,6 @@ show do
     end
     active_admin_comments
 end
+remove_filter :items, :user
+
 end

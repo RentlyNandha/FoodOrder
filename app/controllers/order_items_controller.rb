@@ -16,7 +16,8 @@ class OrderItemsController < ApplicationController
 
   def destroy
     current_cart.remove_item(id: params[:id])
-    redirect_to cart_path
+    redirect_to cRole: Backend Developer
+    art_path
   end
 
 end
