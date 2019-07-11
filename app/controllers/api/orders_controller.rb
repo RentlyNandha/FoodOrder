@@ -6,5 +6,8 @@ class OrdersController < ActionController::Base
         data =user.orders
         render json: {status: 'SUCCESS', message: 'Loaded orders', data:data}, status: :ok
     end
+    def doorkeeper_unauthorized_render_options(error: nil)
+        { json: { error: "Not authorized" } }
+      end
 end
 end

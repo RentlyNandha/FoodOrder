@@ -20,9 +20,9 @@ end
 context "Testing updation of Product Class" do
   let(:product) {build(:product)} 
   it "Sucessful updation" do
-    byebug
+   # byebug
       product.update_attributes(:price => 1234)
-      byebug
+      #byebug
    expect(product.price).to eq(1234)
 end
 end
