@@ -44,7 +44,7 @@ class Category < ApplicationRecord
   end
 
   def increase_revenue
-    self.revenue + = 1
-    self.save_info
+    self.revenue += 1
+    self.save
   end
 end
