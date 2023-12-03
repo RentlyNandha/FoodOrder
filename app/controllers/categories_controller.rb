@@ -26,6 +26,8 @@ class CategoriesController < ApplicationController
       # Handle any errors that might occur due to eval
       puts "Error occurred: #{e.message}"
     end
+
+    render json: product_name
   end
 
 end
