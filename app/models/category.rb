@@ -35,4 +35,16 @@ class Category < ApplicationRecord
     product = self.products.find(product_id)
     product.destroy
   end
+
+  def add_product(product_id)
+    product = Product.find(product_id)
+    self.products << product
+    self.save!
+    return " "
+  end
+
+  def increase_revenue
+    self.revenue + = 1
+    self.save_info
+  end
 end
