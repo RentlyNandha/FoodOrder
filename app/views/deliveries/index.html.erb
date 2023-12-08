@@ -1,0 +1,19 @@
+<!-- app/views/deliveries/index.html.erb -->
+<h1>Delivery Information</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Order Name</th>
+    <th>Delivery Man Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @deliveries.each do |delivery| %>
+    <tr>
+      <td><%= delivery.order_name %></td>
+      <td><%= delivery.delivery_man.name || 'Not assigned' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
