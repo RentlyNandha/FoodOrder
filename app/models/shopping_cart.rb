@@ -24,7 +24,7 @@ class ShoppingCart
 
     order_item.price = product.price
     order_item.quantity = quantity
-    order.sub_total+=order_item.quantity*order_item.price
+    order.sub_total + = order_item.quantity * order_item.price
     order.save
     order_item.save
     return order
@@ -32,7 +32,7 @@ class ShoppingCart
 
   def remove_item(id:)
     o=order.items.find(id)
-    order.sub_total-=o.quantity*o.price
+    order.sub_total- = o.quantity * o.price
     order.save
     o.destroy
   end
